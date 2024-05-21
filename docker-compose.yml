@@ -1,0 +1,18 @@
+# a docker compose file for my "heybot" discord bot
+version: '3.7'
+
+services:
+  heybot:
+    build: .
+    container_name: heybot
+    restart: always
+    network_mode: host
+    environment:
+      - DISCORD_TOKEN=your_discord_token_here
+      - PREFIX=!
+    volumes:
+      - ./heybot:/app/heybot
+
+networks:
+  heybot-network:
+    driver: bridge
